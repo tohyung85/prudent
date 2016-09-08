@@ -1,0 +1,38 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$header-font: 'Lato', sans-serif;
+$body-font: 'Lato', sans-serif;
+
+.slide1 {
+  color: white;
+  background-image: url('/assets/chess.jpg'); 
+  background-repeat: repeat; 
+  background-position: top center; 
+  background-attachment: scroll; 
+  background-size: cover; 
+}
+
+.fp-controlArrow {
+    position: absolute !important;
+    width: 40px !important; /* This can be added here so you don't have to set a width and height 2 times for each arrow, this will create one width for both arrows */
+    height: 40px !important; /* This does the same as above */
+    margin-top:-20px !important; /* This value must always be half of the height - This does the same as above */
+    z-index: 4 !important;
+    top: 50% !important;
+    cursor: pointer !important;
+    border-width: 0px !important;
+}
+
+.fp-controlArrow.fp-prev {
+    margin-top:-20px !important; /* This value must always be half of the height - This does the same as above */
+    left: 10 !important;
+    background-image: url('/assets/left-arrow.png') !important;
+    background-repeat: no-repeat; 
+}
+.fp-controlArrow.fp-next {
+    margin-top: -18px !important; /* This value must always be half of the height - This does the same as above */
+    right: 10 !important;
+    background-image: url('/assets/right-arrow.png') !important;
+    background-repeat: no-repeat; 
+}

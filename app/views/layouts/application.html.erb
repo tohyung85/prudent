@@ -5,8 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 </head>
 <body>
+
+<header class='navigation'>
+  <div class='navigation-inner col-xs-12 col-md-8 col-md-offset-2'>
+    <div class='navigation-left'>
+      <a href="#">Prudent</a>
+    </div>
+    <div class='navigation-right'>
+      <ul class='navigation-right-list'>
+        <li><a href="#">ABOUT</a><p>____</p></li>
+        <li><a href="#">PROJECTS</a><p>____</p></li>
+        <li><a href="#">CONTACT</a><p>____</p></li>
+      </ul>
+    </div>
+  </div>
+</header>
 
 <% if notice.present? %>
   <p class="alert alert-info"><%= notice %></p>
@@ -15,7 +31,9 @@
   <p class="alert alert-danger"><%= alert %></p>
  <% end %>
 
-<%= yield %>
+<section class='site-content col-xs-12 col-md-8 col-md-offset-2'>
+  <%= yield %>
+</section>
 
 </body>
 </html>
