@@ -1,8 +1,9 @@
 $(function(){
   var slide_playing = true
-  var timeinterval = setInterval(function(){
-        $.fn.fullpage.moveSlideRight();      
-      }, 5000);
+  var width = 0;
+  var timeinterval;
+
+  startSlideShow();
 
   $('#fullPage').fullpage({
     anchors: ['firstPage'],
@@ -12,11 +13,15 @@ $(function(){
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {      
       var listbutton = '#list-button-' + slideIndex;
       $(listbutton).addClass('active');
-      resetTimeInterval();
+      if (slide_playing) {
+        resetTimeInterval();  
+      }      
     },
     onSlideLeave: function(anchorLink, index, slideIndex, direction) {
       var listbutton = '#list-button-' + slideIndex;
       $(listbutton).removeClass('active');
+      width = 0;
+      $('.slide-control-status').css('width', width + '%');
     }
   });
 
@@ -25,24 +30,33 @@ $(function(){
       var src = $(this).children().first().attr('src').replace('pause', 'play');
       $(this).children().first().attr('src', src);
       clearInterval(timeinterval);
+      width = 0;
+      $('.slide-control-status').css('width', '0%');
       slide_playing = false;
     } else {
       var src = $(this).children().first().attr('src').replace('play', 'pause');
-      $(this).children().first().attr('src', src);
-      timeinterval = setInterval(function(){
-        $.fn.fullpage.moveSlideRight();      
-      }, 5000);      
-      slide_playing = true;
+      $(this).children().first().attr('src', src);      
+      startSlideShow();
     }    
   });
 
+  function startSlideShow() {
+    timeinterval = setInterval(function(){
+        if (width > 100) {
+          $.fn.fullpage.moveSlideRight();
+        } else{
+          width += 1/5;
+          $('.slide-control-status').css('width', width + '%');
+        }              
+      }, 10);
+    slide_playing = true;
+  }
+
   function resetTimeInterval() {
     clearInterval(timeinterval);
-    timeinterval = setInterval(function(){
-        $.fn.fullpage.moveSlideRight();      
-    }, 5000);      
-  }
-  
+    startSlideShow();
+  }  
+
 });
 
 
