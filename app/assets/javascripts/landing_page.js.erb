@@ -5,12 +5,14 @@ $(function(){
       }, 5000);
 
   $('#fullPage').fullpage({
+    anchors: ['firstPage'],
     sectionSelector: '.vertical-scrolling',
     slideSelector: '.horizontal-scrolling',
     controlArrows: true,
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {      
       var listbutton = '#list-button-' + slideIndex;
       $(listbutton).addClass('active');
+      resetTimeInterval();
     },
     onSlideLeave: function(anchorLink, index, slideIndex, direction) {
       var listbutton = '#list-button-' + slideIndex;
@@ -19,21 +21,27 @@ $(function(){
   });
 
   $('#play-button').click(function(){
-
     if (slide_playing) {
+      var src = $(this).children().first().attr('src').replace('pause', 'play');
+      $(this).children().first().attr('src', src);
       clearInterval(timeinterval);
       slide_playing = false;
     } else {
+      var src = $(this).children().first().attr('src').replace('play', 'pause');
+      $(this).children().first().attr('src', src);
       timeinterval = setInterval(function(){
         $.fn.fullpage.moveSlideRight();      
       }, 5000);      
       slide_playing = true;
     }    
-
   });
 
-
-
+  function resetTimeInterval() {
+    clearInterval(timeinterval);
+    timeinterval = setInterval(function(){
+        $.fn.fullpage.moveSlideRight();      
+    }, 5000);      
+  }
   
 });
 

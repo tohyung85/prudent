@@ -67,6 +67,12 @@ $slide-list-color-active: #BCBFC4;
     height: 10px;
   }
 
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .active {
     background-color: $slide-list-color-active;
   }

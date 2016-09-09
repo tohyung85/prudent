@@ -89,8 +89,9 @@ $nav-height: 90px;
 .dropdown-content a {
   color: black;
   font-size: 13px;
-  padding: 30px;
   line-height: 2em;
+  display: block;
+  width: 100%;
 }
 
 .dropdown:hover .dropdown-content {
