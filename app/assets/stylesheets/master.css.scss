@@ -63,6 +63,41 @@ $nav-height: 90px;
   }
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin-left: -40px;
+  min-width: 160px;
+}
+
+.dropdown-content-inner{
+  margin-top: 15px;
+}
+
+.dropdown-links {
+  margin-top: -2px;
+  padding: 20px;
+  background-color: #E9E8E7;
+  border: 1px solid #E9E8E7;
+}
+
+.dropdown-content a {
+  color: black;
+  font-size: 13px;
+  padding: 30px;
+  line-height: 2em;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
 .site-content {
   margin-top: $nav-height;
 }
