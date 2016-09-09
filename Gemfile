@@ -32,6 +32,9 @@ gem 'jquery-ui-rails'
 # Simple forms
 gem 'simple_form'
 
+# ActiveAdmin
+gem 'activeadmin', github: 'activeadmin'
+
 # Install devise
 gem 'devise', '>= 3.2.4'
 
