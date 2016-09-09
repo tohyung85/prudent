@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $header-font: 'Lato', sans-serif;
 $body-font: 'Lato', sans-serif;
+$slide-control-height: 50px;
+$slide-control-color: rgba(0, 0, 0, 0.8);
+$slide-list-color: #7D8083;
+$slide-list-color-active: #BCBFC4;
 
 .slide1 {
   color: white;
@@ -35,4 +39,35 @@ $body-font: 'Lato', sans-serif;
     right: 10 !important;
     background-image: url('/assets/right-arrow.png') !important;
     background-repeat: no-repeat; 
+}
+
+.slide-control {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left:0;
+  height: $slide-control-height;
+  background-color: $slide-control-color;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+}
+
+#slide-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  li {
+    border-radius: 100px;
+    background-color: $slide-list-color;
+    float: left;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .active {
+    background-color: $slide-list-color-active;
+  }
 }
