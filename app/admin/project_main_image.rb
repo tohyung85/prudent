@@ -17,7 +17,7 @@ ActiveAdmin.register ProjectMainImage do
     column :project_id
     column :photo do |project_main_image|
       link_to admin_project_main_image_path(project_main_image) do
-        image_tag project_main_image.photo.url, class: 'active-admin-thumbnail'
+        image_tag project_main_image.photo.thumb.url, class: 'active-admin-thumbnail'
       end
     end
     actions
@@ -27,7 +27,7 @@ ActiveAdmin.register ProjectMainImage do
     attributes_table do
       row :project
       row :photo do |project_main_image|
-        image_tag project_main_image.photo.url, class: 'active-admin-main-image'
+        image_tag project_main_image.photo.medium.url, class: 'active-admin-main-image'
       end
     end
   end
