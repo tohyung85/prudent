@@ -1,10 +1,14 @@
 $header-font: 'Lato', sans-serif;
 $body-font: 'Lato', sans-serif;
 $main-color: rgba(0, 0, 0, 1);
-$nav-color: rgba(0, 0, 0, 0.8);
+$nav-color: rgba(0, 0, 0, 0.75);
 $nav-text-color: white;
 $alt-color: #DB6C4B;
 $nav-height: 90px;
+
+body {
+  font-family: $header-font;
+}
 
 .navigation {
   position: fixed;
