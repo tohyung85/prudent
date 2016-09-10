@@ -14,21 +14,21 @@
 <header class='navigation'>
   <div class='navigation-inner col-xs-12 col-md-8 col-md-offset-2'>
     <div class='navigation-left'>
-      <a href="#">Prudent</a>
+      <%= link_to 'Prudent', root_path%>
     </div>
     <div class='navigation-right'>
       <ul class='navigation-right-list'>
         <li><a href="#">ABOUT</a><p>____</p></li>
         <li>
           <div class='dropdown'>
-            <a href="#">PROJECTS</a><p>____</p>            
+            <%= link_to 'PROJECTS', projects_path %><p>____</p>            
             <div class='dropdown-content'>
               <div class='dropdown-content-inner'>
                 <%= image_tag('dropdown-border-image.png', size: '69x13')%>
                 <div class='dropdown-links'>
-                  <a href="#">RETAIL</a>
-                  <a href="#">COMMERCIAL</a>
-                  <a href="#">SHOW FLATS</a>
+                  <% Category.all.each do |category|%>
+                    <%= link_to category.name.upcase, category_path(category)%>
+                  <% end %>
                 </div>
               </div>
             </div>
