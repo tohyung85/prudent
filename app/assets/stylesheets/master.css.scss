@@ -111,21 +111,11 @@ body {
   clear: both;
 }
 
-.align-left {
-  float: left;
-  margin-right: 30px;
-}
-
-.align-right {
-  float: left;
-  // padding-left: 30px;
-}
-
 @media (max-width: 642px){
   .navigation-right a {
     font-size: 12px;
   } 
   .navigation-left a {
-    font-size: 23px;
+    font-size: 22px;
   }
 }
