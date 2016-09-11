@@ -30,6 +30,9 @@ gem 'figaro', '>= 1.0.0'
 # Carrierwave AWS
 gem 'carrierwave-aws'
 
+# Minimagick
+gem 'mini_magick', '~> 4.3.1'
+
 # Bootstrap gem
 gem 'bootstrap-sass', '~>3.3.5.1'
 gem 'sprockets', '~>2.11.0'
