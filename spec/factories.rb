@@ -1,4 +1,6 @@
 FactoryGirl.define do
+  factory :project_gallery_image do
+  end
   factory :project_main_image do
   end
   factory :category do
