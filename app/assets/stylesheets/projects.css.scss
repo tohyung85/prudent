@@ -1,0 +1,55 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.individual-project {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+  h3 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0px; 
+  }
+}
+
+.underbar {
+  line-height: 0px;
+}
+
+.project-gallery-image-div {
+  margin-bottom: 30px;
+}
+
+.project-gallery-image {
+  width: 100%;
+  height: 415px;
+  object-fit: cover;
+}
+
+.project-main-image-full {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.project-gallery-description-1 {
+  width: 60%;
+  text-align: justify;
+}
+
+.project-gallery-description-2 {
+  width: 40%;
+  text-align: justify;
+}
+
+.long-width {
+  width: 60%;
+}
+
+.short-width {
+  width: 40%
+}

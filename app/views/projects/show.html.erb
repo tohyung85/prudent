@@ -1,3 +1,41 @@
 <div class='individual-project'>
-  <h1><%=current_project.name %></h1>
+  <h1 class='col-md-offset-1'><%=current_project.name %><p class='underbar'>___</p></h1>
+
+  <%= image_tag(current_project.project_main_image.photo.cover, class: 'project-main-image-full') %>
+
+  <% current_project.project_gallery_images.each_with_index do |project_gallery_image, index| %>
+    <% if index == 0 %>
+      <p class='align-left project-gallery-description-1'>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+      <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-right short-width")%>
+      <%= content_tag(:div, '' ,class: 'clear')%>
+    <% end %>
+
+    <% if index == 1 %>
+      <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-left long-width")%>      
+      <div class='align-right project-gallery-description-2'>
+          <h3>PROJECT INFORMATION<p class='underbar'>___</p></h3>
+          <br/>
+          <p>Location: <%= current_project.location %></p>
+          <p>Type: <%= current_project.category.name %></p>
+          <p>Size: <%= current_project.size %></p>
+      </div>
+      
+      <%= content_tag(:div, '' ,class: 'clear')%>
+    <% end %>
+
+    <% if index > 1 %>
+      <% if index % 2 == 1 %>
+        <% width = 'long-width'%>
+        <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-right #{width}")%>
+        <%= content_tag(:div, '' ,class: 'clear')%>
+      <% else %>
+        <% width = 'short-width'%>
+        <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-left #{width}")%>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
 </div>

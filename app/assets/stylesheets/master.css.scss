@@ -107,6 +107,20 @@ body {
   margin-top: $nav-height;
 }
 
+.clear {
+  clear: both;
+}
+
+.align-left {
+  float: left;
+  padding-right: 30px;
+}
+
+.align-right {
+  float: left;
+  padding-left: 30px;
+}
+
 @media (max-width: 642px){
   .navigation-right a {
     font-size: 12px;
