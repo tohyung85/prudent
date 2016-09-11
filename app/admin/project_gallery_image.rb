@@ -11,7 +11,7 @@ ActiveAdmin.register ProjectGalleryImage do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :project_id, :photo
+  permit_params :project_id, :photo, :row_order
 
   index do
     column :project_id
@@ -21,6 +21,7 @@ ActiveAdmin.register ProjectGalleryImage do
       end
     end
     column :orientation
+    column :row_order
     actions
   end
 
@@ -31,6 +32,7 @@ ActiveAdmin.register ProjectGalleryImage do
         image_tag project_gallery_image.photo.medium.url, class: 'active-admin-main-image'
       end
       row :orientation
+      row :row_order
     end
   end
 end
