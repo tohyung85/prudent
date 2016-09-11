@@ -29,6 +29,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  process :store_orientation
 
   # Create different versions of your uploaded files:
   version :cover do
@@ -54,4 +55,13 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+
+  def store_orientation
+    if file && model
+      width, height = ::MiniMagick::Image.open(file.file)[:dimensions]
+      model.orientation = width > height ? 'landscape' : 'potrait'
+    end
+  end
 end

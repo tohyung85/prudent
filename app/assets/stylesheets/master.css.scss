@@ -107,11 +107,15 @@ body {
   margin-top: $nav-height;
 }
 
+.clear {
+  clear: both;
+}
+
 @media (max-width: 642px){
   .navigation-right a {
     font-size: 12px;
   } 
   .navigation-left a {
-    font-size: 23px;
+    font-size: 22px;
   }
 }

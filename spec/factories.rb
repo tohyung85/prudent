@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :project_gallery_image do
+    association :project
   end
   factory :project_main_image do
+    association :project
   end
   factory :category do
     name 'Retail'
@@ -16,7 +18,7 @@ FactoryGirl.define do
     published? true
 
     factory :unpublished_project do
-      published? true
+      published? false
     end
     association :category
   end
