@@ -1,7 +1,7 @@
 <div class='individual-project'>
   <h1 class='col-md-offset-1'><%=current_project.name %><p class='underbar'>___</p></h1>
 
-  <%= image_tag(current_project.project_main_image.photo.cover, class: 'project-main-image-full') %>
+  <%= image_tag(current_project.project_main_image.photo.cover, class: 'project-main-image-full') if current_project.project_main_image.present? %>
 
   <% current_project.project_gallery_images.each_with_index do |project_gallery_image, index| %>
     <% if index == 0 %>
@@ -26,12 +26,11 @@
     <% end %>
 
     <% if index > 1 %>
-      <% if index % 2 == 1 %>
-        <% width = 'long-width'%>
+      <% width = project_gallery_image.orientation == 'landscape' ? 'long-width' : 'short-width' %>
+      <% if index % 2 == 1 %>        
         <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-right #{width}")%>
         <%= content_tag(:div, '' ,class: 'clear')%>
       <% else %>
-        <% width = 'short-width'%>
         <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-left #{width}")%>
       <% end %>
     <% end %>

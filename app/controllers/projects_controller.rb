@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    return render_not_found unless current_project.published?
   end
 
   private

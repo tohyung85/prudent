@@ -20,6 +20,7 @@ ActiveAdmin.register ProjectGalleryImage do
         image_tag project_gallery_image.photo.thumb.url, class: 'active-admin-thumbnail'
       end
     end
+    column :orientation
     actions
   end
 
@@ -29,6 +30,7 @@ ActiveAdmin.register ProjectGalleryImage do
       row :photo do |project_gallery_image|
         image_tag project_gallery_image.photo.medium.url, class: 'active-admin-main-image'
       end
+      row :orientation
     end
   end
 end
