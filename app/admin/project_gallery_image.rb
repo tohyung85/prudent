@@ -11,7 +11,7 @@ ActiveAdmin.register ProjectGalleryImage do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :project_id, :photo, :row_order, :full_width
+  permit_params :project_id, :photo, :row_order, :full_width, :orientation
 
   index do
     column :project_id
