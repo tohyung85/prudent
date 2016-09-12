@@ -59,7 +59,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   private
 
   def store_orientation
-    if file && model
+    if file && model && model.has_attribute?(:orientation)
       width, height = ::MiniMagick::Image.open(file.file)[:dimensions]
       model.orientation = width > height ? 'landscape' : 'potrait'
     end

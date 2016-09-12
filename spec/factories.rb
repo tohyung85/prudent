@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :slideshow_image do
+    description 'hello'
+    row_order 1
+  end
   factory :project_gallery_image do
     association :project
   end

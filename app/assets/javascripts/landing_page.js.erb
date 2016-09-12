@@ -13,9 +13,14 @@ $(function(){
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {      
       var listbutton = '#list-button-' + slideIndex;
       $(listbutton).addClass('active');
+      $('.current-slide-index').html(slideIndex+1);
       if (slide_playing) {
         resetTimeInterval();  
       }      
+      var slide_number = slideIndex +1;
+      var new_caption = $("*[data-slide="+slide_number+"]");
+      var caption_text = new_caption.text().split('_')[0];
+      $('#slide-caption').html(caption_text);
     },
     onSlideLeave: function(anchorLink, index, slideIndex, direction) {
       var listbutton = '#list-button-' + slideIndex;
@@ -45,7 +50,7 @@ $(function(){
         if (width > 100) {
           $.fn.fullpage.moveSlideRight();
         } else{
-          width += 1/5;
+          width += 1/8;
           $('.slide-control-status').css('width', width + '%');
         }              
       }, 10);
