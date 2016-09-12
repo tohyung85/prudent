@@ -18,7 +18,7 @@ ActiveAdmin.register ProjectDescription do
     column :project_id
     column :contents do |project_description|
       link_to admin_project_description_path(project_description) do
-        project_description.contents
+        strip_tags(project_description.contents)
       end
     end
     actions
@@ -27,14 +27,16 @@ ActiveAdmin.register ProjectDescription do
   show do
     attributes_table do
       row :project
-      row :contents, &:contents
+      row :contents do |project_description|
+        strip_tags(project_description.contents)
+      end
     end
   end
 
-  form title: 'A custom title' do |_f|
+  form title: 'Project Description' do |_f|
     inputs 'Details' do
       input :project
-      input :contents, label: 'Description content'
+      input :contents, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
     end
     actions
   end
