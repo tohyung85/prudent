@@ -2,19 +2,13 @@
 
 <div id='fullPage'>
   <section class="vertical-scrolling">
-      <div class="horizontal-scrolling slide1" data-anchor='slide1'>
-        <div class='slide-container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3'>
-          <h2>fullPage.js</h2>
-          <h3>This is the fifth section and it contains the first slide</h3>
+    <% @slide_images.each do |slide_image| %>
+      <div class="horizontal-scrolling slide<%=slide_image.row_order%> slides" style="background-image: url(<%= slide_image.photo.cover %>)">
+          <div class='slide-container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3'>
+            <h2 class='slide-description' data-slide='<%=slide_image.row_order%>'><%=slide_image.description%><p class='underbar'>___</p></h2>            
+          </div>
         </div>
-      </div>
-      <div class="horizontal-scrolling slide2" data-anchor='slide2'>
-        <div class='slide-container col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3'>
-          <h2>fullPage.js</h2>
-          <h3>This is the second slide</h3> 
-          <p class="end">Thank you!</p>
-        </div>
-      </div>
+    <% end %>
   </section>
 </div>
 
@@ -24,13 +18,13 @@
   </div>
   <div class='slide-control'>
     <div class='col-xs-1' id='play-button'><%= image_tag('pause-button.png')%></div>
-    <div class='col-xs-1' id='slide-counter'>2/11</div>
-    <div class='col-xs-1'id='slide-caption'>Chess</div>
+    <div class='col-xs-1' id='slide-counter'><span class='current-slide-index'>1</span>/<%= @slide_images.count %></div>
+    <div class='col-xs-1'id='slide-caption'><%= @slide_images.first.description %></div>
     <ul class='col-xs-6' id= 'slide-list'>
-      <li class='list-button active' id='list-button-0'><a href="/#firstPage">&nbsp</a></li>
-      <li class='list-button' id='list-button-1' data-slide='1'><a href="/#firstPage/slide2">&nbsp</a></li>
-      <li class='list-button' id='list-button-2' data-slide='2'><a href="/#firstPage/slide3">&nbsp</a></li>
-      <li class='list-button' id='list-button-3' data-slide='3'><a href="#">&nbsp</a></li>
+      <% @slide_images.each_with_index do |slide_image, index| %>
+        <% active='active' if index == 0 %>
+        <li class='list-button <%=active%>' id='list-button-<%=index%>'><a href="/#firstPage/slide<%=index+1%>">&nbsp</a></li>
+      <% end %>      
     </ul>
   </div>
 </div>
