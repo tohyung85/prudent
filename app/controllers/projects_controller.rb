@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   def index
+    @all_projects = Project.all
+    @all_categories = Category.all
   end
 
   def show

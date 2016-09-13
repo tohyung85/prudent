@@ -1,3 +1,29 @@
 <div class='projects-index'>
-  <h1>All Projects</h1>
+  <h1 class='col-md-offset-1'>Projects<p class='underbar'>___</p></h1>
+
+  <p class='col-md-6'>As a design-focused, process-driven practice, we provide innovative solutions for projects of various scales across a broad range of sectors. We create big ideas and bring them to reality.</p>
+  
+  <div class='clear'></div>
+
+  <div class='categories-list'>
+    <% @all_categories.each do |category| %>
+      <%= link_to(category_path(category), class: 'category-link col-xs-2') do %>
+          <%= category.name %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='clear'></div>
+
+  <div class='all-projects-list'>
+    <% @all_projects.each do |project| %>
+      <%= link_to(project_path(project), class: 'project-box') do %>
+        <%= image_tag project.project_main_image.photo.thumb, class: 'project-index-thumb' %>
+        <span class="caption">
+        <h3><%= project.name %><p class='underbar'>___</p></h3>
+        <p><%= project.location %></p>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
 </div>
