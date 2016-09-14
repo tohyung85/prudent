@@ -1,0 +1,60 @@
+<%= javascript_include_tag 'gmaps' %>
+
+<div class='contact_page'>
+  <h1 class='col-md-offset-1'>Contact<p class='underbar'>___</p></h1>
+  <br/>
+  <h3 class='contact-page_description'>Reach out to us to find out more</h3>
+  <br/>
+
+  <h3 class='contact-page_description'>CONTACT DETAILS<p class='underbar'>___</p></h3>
+  <p>123 Dawson Road</p>
+  <p>#12-99</p>
+  <p>Singapore 123456</p>
+  <br/>
+  <p>Phone: +65 98765432</p>
+  <br/>
+  <p>Email: <%= mail_to "prudent@gmail.com" %></p>
+<br/>
+
+  <script>
+
+  function initMap() {
+    var myLatLng = {lat: 1.295379, lng: 103.810556};
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      zoom: 14,
+      center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_KEY']%>&callback=initMap">
+  </script>
+
+  <div id="map-container">
+    <div id="map-canvas"></div>
+  </div>
+
+  <div class='contact-form-section'>
+    <h3 class='contact-page_description'>CONTACT FORM<p class='underbar'>___</p></h3>
+
+    <%= simple_form_for @contact_messages do |f| %>
+      <%= f.input :name , wrapper_html: { class: 'col-xs-3 form-inputs' }%>
+      <div class='clear'></div>
+      <%= f.input :email, wrapper_html: { class: 'col-xs-3 form-inputs' } %>
+      <div class='clear'></div>
+      <%= f.input :phone, wrapper_html: { class: 'col-xs-3 form-inputs' } %>
+      <div class='clear'></div>
+      <%= f.input :message, wrapper_html: { class: 'col-xs-6 form-message-box form-inputs' } %>
+      <div class='clear'></div>
+      <%= f.submit 'Submit', class: 'form-button' %>
+    <% end %>
+  </div>
+</div>
