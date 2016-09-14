@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   def show
+    @all_categories = Category.all
   end
 
   private

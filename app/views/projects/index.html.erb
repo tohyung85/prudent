@@ -17,13 +17,7 @@
 
   <div class='all-projects-list'>
     <% @all_projects.each do |project| %>
-      <%= link_to(project_path(project), class: 'project-box') do %>
-        <%= image_tag project.project_main_image.photo.thumb, class: 'project-index-thumb' %>
-        <span class="caption">
-        <h3><%= project.name %><p class='underbar'>___</p></h3>
-        <p><%= project.location %></p>
-        </span>
-      <% end %>
+      <%= render_project_box(project) %>
     <% end %>
   </div>
 </div>

@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe ProjectsController, type: :controller do
   let(:project) { FactoryGirl.create(:project) }
   let(:unpublished_project) { FactoryGirl.create(:unpublished_project) }
+  let(:project_main_image) { FactoryGirl.create(:project_main_image) }
   describe '#index' do
     render_views
     it 'should allow user to access page' do

@@ -1,3 +1,23 @@
 <div class='project-category'>
-  <h1><%= current_category.name %></h1>
+  <h1 class='col-md-offset-1'><%= current_category.name %><p class='underbar'>___</p></h1>
+
+  <p class='col-md-6 category-description'>We create homes as individual as the clients who live in them. Our approach to the very personal role of private residential design is closely collaborative and openly accessible. In realising the client’s vision, we aim to enhance their lifestyle and embody their aspirations, ensuring a unique result that exceeds expectations.</p>
+  
+  <div class='clear'></div>
+
+  <div class='categories-list'>
+    <% @all_categories.each do |category| %>
+      <%= link_to(category_path(category), class: 'category-link col-xs-2') do %>
+          <%= category.name %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='clear'></div>
+
+  <div class='all-projects-list'>
+    <% current_category.projects.each do |project| %>
+      <%= render_project_box(project) %>
+    <% end %>
+  </div>
 </div>
