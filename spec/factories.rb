@@ -1,4 +1,6 @@
 FactoryGirl.define do
+  factory :contact_message do
+  end
   factory :project_description do
   end
   factory :slideshow_image do
