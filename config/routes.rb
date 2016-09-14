@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'static_pages#landing_page'

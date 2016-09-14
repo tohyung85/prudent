@@ -6,6 +6,6 @@ class ContactMessage < ActiveRecord::Base
   after_create :send_user_message
 
   def send_user_message
-    ContactMailer.contact_message_sent(id).deliver_now
+    ContactMailer.delay.contact_message_sent(id)
   end
 end
