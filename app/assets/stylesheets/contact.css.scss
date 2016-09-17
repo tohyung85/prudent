@@ -62,9 +62,30 @@ h3.contact-page_description {
 }
 
 .contact-email-link {
+  text-decoration: underline;
   color: black;
 }
 
 .contact-email-link:hover {
   color: #E7DDA1;
+}
+
+.hide-form {
+  display: none;
+}
+
+.contact-form {
+  display: block;
+}
+
+.display-thank-you {
+  display: block;
+}
+
+.hide-thank-you {
+  display: none;
+}
+
+.contact-thank-you-div {
+  text-align: center;
 }

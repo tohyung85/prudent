@@ -1,14 +1,22 @@
 class ContactMessagesController < ApplicationController
   def create
     @contact_messages = ContactMessage.create(contact_message_params)
-    return render :new, status: :unprocessible_entity unless @contact_messages.valid?
-
-    @contact_messages = ContactMessage.new
-    render :new
+    if @contact_messages.valid?
+      @contact_messages = ContactMessage.new
+      @displayform = 'hide-form'
+      @displaythankyou = 'display-thank-you'
+      render :new
+    else
+      @displayform = 'contact-form'
+      @displaythankyou = 'hide-thank-you'
+      return render :new, status: :unprocessible_entity
+    end
   end
 
   def new
     @contact_messages = ContactMessage.new
+    @displayform = 'contact-form'
+    @displaythankyou = 'hide-thank-you'
   end
 
   private
