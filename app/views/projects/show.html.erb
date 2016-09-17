@@ -6,7 +6,7 @@
   <% @project_gallery_images.each_with_index do |project_gallery_image, index| %>
     <% if index == 0 %>
       <div class='align-left project-gallery-description-1'>
-        <%= current_project.project_descriptions.first.contents.html_safe%>
+        <%= current_project.project_descriptions.first.contents.html_safe if current_project.project_descriptions.present? %>
       </div>
       <%= content_tag(:div, image_tag(project_gallery_image.photo.medium, class: "project-gallery-image") ,class: "project-gallery-image-div align-left short-width")%>
       <%= content_tag(:div, '' ,class: 'clear')%>
