@@ -46,13 +46,13 @@
     <h3 class='contact-page_description'>CONTACT FORM<p class='underbar'>___</p></h3>
 
     <%= simple_form_for @contact_messages do |f| %>
-      <%= f.input :name , wrapper_html: { class: 'col-xs-3 form-inputs' }%>
+      <%= f.input :name , wrapper_html: { class: 'col-xs-8 col-md-3 form-inputs' }%>
       <div class='clear'></div>
-      <%= f.input :email, wrapper_html: { class: 'col-xs-3 form-inputs' } %>
+      <%= f.input :email, wrapper_html: { class: 'col-xs-8 col-md-3 form-inputs' } %>
       <div class='clear'></div>
-      <%= f.input :phone, wrapper_html: { class: 'col-xs-3 form-inputs' } %>
+      <%= f.input :phone, wrapper_html: { class: 'col-xs-8 col-md-3 form-inputs' } %>
       <div class='clear'></div>
-      <%= f.input :message, wrapper_html: { class: 'col-xs-6 form-message-box form-inputs' } %>
+      <%= f.input :message, wrapper_html: { class: 'col-xs-12 col-md-6 form-message-box form-inputs' } %>
       <div class='clear'></div>
       <%= f.submit 'Submit', class: 'form-button' %>
     <% end %>

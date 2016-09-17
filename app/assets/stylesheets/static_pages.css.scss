@@ -16,6 +16,10 @@ $slide-list-color-active: #BCBFC4;
   background-size: cover; 
 }
 
+.slide1 {
+  background-color:black;
+}
+
 .fp-controlArrow {
     position: absolute !important;
     width: 40px !important; /* This can be added here so you don't have to set a width and height 2 times for each arrow, this will create one width for both arrows */
@@ -59,7 +63,7 @@ $slide-list-color-active: #BCBFC4;
 #slide-list {
   list-style: none;
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   li {
     border-radius: 100px;
     background-color: $slide-list-color;
