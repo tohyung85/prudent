@@ -20,7 +20,7 @@ $(function(){
       var slide_number = slideIndex +1;
       var new_caption = $("*[data-slide="+slide_number+"]");
       var caption_text = new_caption.text().split('_')[0];
-      $('#slide-caption').html(caption_text);
+      $('#slide-caption').html(caption_text.toUpperCase());
     },
     onSlideLeave: function(anchorLink, index, slideIndex, direction) {
       var listbutton = '#list-button-' + slideIndex;
