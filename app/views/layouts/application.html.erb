@@ -50,6 +50,34 @@
   <%= yield %>
 </section>
 
+<div class='clear'></div>
+<footer class='site-footer'>
+  <div class='col-xs-12 col-md-offset-2 col-md-8 site-footer-inner'>
+    <div class='footer-details'>
+      <div class='col-xs-4 col-md-3'>
+        <p class='overbar'>___</p>
+        <p class='sameline'>PRUDENT DESIGN</p> 
+        <p><span class='footer-brand-md'>&nbsp&nbsp&nbsp&nbsp&nbspAND </span><span class='footer-brand-sm'>&</span>CONTRACTS</p>
+      </div>
+      <div class='col-xs-4 col-md-3'>
+        <p class='overbar'>___</p>
+        <p>PRUDENT</p>
+        <p class='sameline'>123 DAWSON ROAD</p>
+        <p>SINGAPORE 123456</p>
+      </div>
+      <div class='col-xs-4 col-md-3'>
+        <p class='overbar'>___</p>
+        <p class='phone-and-email'>P: <span>+65 12345678</span></p>
+        <p class='phone-and-email'>E: <span><%= mail_to 'prudent@gmail.com', 'PRUDENT@GMAIL.COM',class: 'footer-mail-link' %></span></p>
+      </div>
+    </div>
+    <div class='clear'></div>
+    <div class='footer-copyright'>
+      <p>@Prudent 2016</p>
+    </div>
+  </div>
+</footer>
+
 </body>
 
 </html>

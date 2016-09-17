@@ -111,11 +111,72 @@ body {
   clear: both;
 }
 
+.site-footer {
+  margin-top: 60px;
+  font-size: 12px;
+  background-color: #F8F7F6;
+  font-weight: bold;
+  height: 200px;
+}
+
+.site-footer-inner {
+  padding-top: 30px;
+}
+
+.footer-brand-sm {
+  display: none;
+}
+
+.overbar {
+  margin-bottom: 5px;
+}
+
+.sameline {
+  margin-bottom: 0px;
+}
+
+.footer-mail-link {
+  text-decoration: none;
+  font-size: 12px;
+  color: black;
+}
+
+.footer-mail-link:hover{
+  text-decoration: none;
+  font-size: 12px;
+  color: grey;
+}
+
+#about-link:hover {
+  color: #26A5D4;
+}
+
+#projects-link:hover {
+  color: #DB6C4B;
+}
+
+#contact-link:hover {
+  color: #E7DDA1;
+}
+
 @media (max-width: 642px){
   .navigation-right a {
     font-size: 12px;
   } 
   .navigation-left a {
-    font-size: 22px;
+    font-size: 18px;
+  }
+
+  .footer-brand-sm {
+    display: inline-block;
+  }
+
+  .footer-brand-md {
+    display: none;
+  }
+
+  .phone-and-email span::before {
+    content: "\A";
+    white-space: pre;
   }
 }
