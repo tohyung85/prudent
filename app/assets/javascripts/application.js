@@ -15,3 +15,4 @@
 //= require bootstrap-sprockets
 //= require jquery-ui
 //= require ckeditor/init
+//= require master
