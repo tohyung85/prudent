@@ -40,17 +40,14 @@
 }
 
 .all-projects-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 50px;  
-  flex-wrap: wrap;
 }
 
 .project-box {
+  margin: 13px;
+  float: left;
   width: 280px;
   height: 200px;
-  margin-bottom: 30px;
   position: relative;
   overflow: hidden;
 }
