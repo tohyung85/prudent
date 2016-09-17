@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'static_pages#landing_page'
+  get 'about', to: 'static_pages#about_page'
   resources :projects, only: [:index, :show]
   resources :categories, only: [:show]
   resources :contact_messages, only: [:create, :new]

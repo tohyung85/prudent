@@ -17,10 +17,10 @@
     </div>
     <div class='navigation-right'>
       <ul class='navigation-right-list'>
-        <li><a href="#">ABOUT</a><p>____</p></li>
+        <li><%= link_to 'ABOUT', about_path, id: 'about-link'%><p>____</p></li>
         <li>
           <div class='dropdown'>
-            <%= link_to 'PROJECTS', projects_path %><p>____</p>            
+            <%= link_to 'PROJECTS', projects_path, id: 'projects-link' %><p>____</p>            
             <div class='dropdown-content'>
               <div class='dropdown-content-inner'>
                 <%= image_tag('dropdown-border-image.png', size: '69x13')%>
@@ -33,7 +33,7 @@
             </div>
           </div>
         </li>
-        <li><%= link_to 'CONTACT', new_contact_message_path%><p>____</p></li>
+        <li><%= link_to 'CONTACT', new_contact_message_path, id: 'contact-link'%><p>____</p></li>
       </ul>
     </div>
   </div>

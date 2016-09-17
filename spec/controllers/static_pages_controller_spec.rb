@@ -8,4 +8,11 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe '#about_page' do
+    it 'should display about page' do
+      get :about_page
+      expect(response).to have_http_status(:success)
+    end
+  end
 end

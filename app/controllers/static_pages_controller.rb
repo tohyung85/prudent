@@ -3,4 +3,7 @@ class StaticPagesController < ApplicationController
     @slide_images = SlideshowImage.all.order(row_order: :asc)
     render(layout: 'layouts/no_footer_layout')
   end
+
+  def about_page
+  end
 end
