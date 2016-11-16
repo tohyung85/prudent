@@ -12,7 +12,7 @@ ActiveAdmin.register ProjectMainImage do
   #   permitted
   # end
   permit_params :project_id, :photo
-
+  menu false
   index do
     column :project_id
     column :photo do |project_main_image|
