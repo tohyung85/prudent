@@ -15,7 +15,7 @@ ActiveAdmin.register Project do
   scope :unpublished
   scope :published
 
-  permit_params :name, :location, :published?, :size, :category_id
+  permit_params :name, :location, :published?, :size, :category_id, project_main_image_attributes: [:id, :photo, :orientation, :_destroy], project_descriptions_attributes: [:id, :contents, :_destroy], project_gallery_images_attributes: [:id, :photo, :orientation, :row_order, :_destroy]
 
   index do
     column :name
@@ -32,6 +32,31 @@ ActiveAdmin.register Project do
     column 'Creation Date', :created_at
     column :published?
     actions
+  end
+
+  show do |f|
+    attributes_table do
+      row :id
+      row :name
+      row :category
+      row :location
+      row :published?
+      row :size
+      row 'Main Image' do
+        image_tag project.project_main_image.photo.medium.url, class: 'active-admin-main-image'
+      end
+      row 'Description' do
+        project.project_descriptions.first.contents
+      end
+      table_for(f.project_gallery_images) do |_gallery_image|
+        column :photo do |gallery_photo|
+          image_tag gallery_photo.photo.thumb.url, class: 'active-admin-thumbnail'
+        end
+        column :orientation
+        column :row_order
+        column :full_width
+      end
+    end
   end
 
   form title: 'Create a New Project' do |f|
@@ -54,6 +79,7 @@ ActiveAdmin.register Project do
         a.input :orientation
         a.input :row_order
       end
+      f.input :published?
       f.actions
     end
   end
