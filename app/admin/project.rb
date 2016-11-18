@@ -41,7 +41,9 @@ ActiveAdmin.register Project do
       row :category
       row :location
       row :published?
-      row :size
+      row :size, sortable: :size do |project|
+        "#{project.size}m2"
+      end
       row 'Main Image' do
         image_tag project.project_main_image.photo.medium.url, class: 'active-admin-main-image'
       end
@@ -53,7 +55,7 @@ ActiveAdmin.register Project do
           image_tag gallery_photo.photo.thumb.url, class: 'active-admin-thumbnail'
         end
         column :orientation
-        column :row_order
+        column :row_order, sortable: :row_order
         column :full_width
       end
     end
@@ -67,19 +69,20 @@ ActiveAdmin.register Project do
       f.input :size, sortable: :size do |project|
         "#{project.size}m2"
       end
+      f.input :published?
       f.has_many :project_main_image, allow_destroy: true do |a|
-        a.input :photo
+        a.input :photo, hint: image_tag(a.object.photo.thumb.url, class: 'active-admin-thumbnail')
         a.input :orientation
       end
       f.has_many :project_descriptions, allow_destroy: true do |a|
         a.input :contents, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }
       end
       f.has_many :project_gallery_images, allow_destroy: true do |a|
-        a.input :photo
+        a.input :photo, hint: image_tag(a.object.photo.thumb.url, class: 'active-admin-thumbnail')
         a.input :orientation
         a.input :row_order
       end
-      f.input :published?
+
       f.actions
     end
   end
