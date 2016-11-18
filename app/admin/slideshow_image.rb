@@ -11,7 +11,7 @@ ActiveAdmin.register SlideshowImage do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  permit_params :photo, :row_order, :description
+  permit_params :photo, :row_order, :description, :black_description?
 
   index do
     column :photo do |slideshow_image|
@@ -21,6 +21,7 @@ ActiveAdmin.register SlideshowImage do
     end
     column :description
     column :row_order
+    column :black_description?
     actions
   end
 
@@ -31,6 +32,7 @@ ActiveAdmin.register SlideshowImage do
       end
       row :description
       row :row_order
+      row :black_description?
     end
   end
 end
