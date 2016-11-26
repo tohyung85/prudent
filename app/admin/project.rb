@@ -70,7 +70,7 @@ ActiveAdmin.register Project do
         "#{project.size}m2"
       end
       f.input :published?
-      f.has_many :project_main_image, allow_destroy: true do |a|
+      f.has_many :project_main_image, heading: 'Project main image', allow_destroy: true do |a|
         a.input :photo, hint: image_tag(a.object.photo.thumb.url, class: 'active-admin-thumbnail')
         a.input :orientation
       end
@@ -82,7 +82,6 @@ ActiveAdmin.register Project do
         a.input :orientation
         a.input :row_order
       end
-
       f.actions
     end
   end
